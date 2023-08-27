@@ -1,13 +1,12 @@
-// Declarative //
 pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Build and Run Local Server') {
             steps {
-                echo 'Test Build - 2021..'
-                sh 'docker build -t my-aspnet-app .'
-                
+                echo 'Building and Running Local Server...'
+                sh 'echo "Hola Mundo" > index.html'
+                sh 'python -m http.server 8282'
             }
         }
         stage('Test') {
@@ -18,7 +17,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying - 2023...'
-                sh 'docker run -p 80:80 my-aspnet-app'
+                // Agregar los comandos de despliegue aquí si es necesario
             }
         }
     }
