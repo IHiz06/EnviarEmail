@@ -6,6 +6,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Test Build - 2021..'
+                sh 'docker build -t my-aspnet-app .'
                 
             }
         }
@@ -17,6 +18,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying - 2023...'
+                sh 'docker run -p 80:80 my-aspnet-app'
             }
         }
     }
