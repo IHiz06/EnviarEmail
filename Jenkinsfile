@@ -1,12 +1,12 @@
+// Declarative //
 pipeline {
     agent any
 
     stages {
-        stage('Build and Run Local Server') {
+        stage('Build') {
             steps {
-                echo 'Building and Running Local Server...'
-                sh 'echo "Hola Mundo" > index.html'
-                sh 'python -m http.server 8282'
+                echo 'Test Build - 2021..'
+                
             }
         }
         stage('Test') {
@@ -17,7 +17,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying - 2023...'
-                // Agregar los comandos de despliegue aquí si es necesario
             }
         }
     }
